@@ -105,9 +105,11 @@ class _PageStatusState extends State<PageStatus> {
                             color: Colors.white, fontWeight: FontWeight.normal),
                       ),
                       trailing: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
                           icon: Icon(
-                            Icons.more_horiz,
+                            Icons.close,
                             color: Colors.white,
                           )),
                     ),
