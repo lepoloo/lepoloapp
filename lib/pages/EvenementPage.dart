@@ -35,26 +35,9 @@ class _EvenementPageState extends State<EvenementPage> {
                 fontSize: MediaQuery.of(context).size.height / 50,
               ),
             ),
-            actions: [
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    // Afficher/masquer la barre de recherche
-                  });
-                },
-                child: AnimatedContainer(
-                  width: 0, // Ajustez la largeur de l'icône de recherche ici
-                  duration: Duration(milliseconds: 900),
-                  child: Icon(
-                    Icons.search,
-                    color: Theme.of(context).primaryColor,
-                    size: MediaQuery.of(context).size.height / 40,
-                  ),
-                ),
-              ),
-            ],
           ),
-          body: ListView.builder(
+          body: PageView.builder(
+            scrollDirection: Axis.vertical,
             itemCount: model.getevenement.length,
             itemBuilder: (context, index) {
               var eve = model.getevenement[index];
@@ -64,10 +47,10 @@ class _EvenementPageState extends State<EvenementPage> {
                 child: EvenementCard(
                   date: DateTime(2022),
                   isfavorite: true,
-                  title: eve["nom"],
-                  lieu: eve["lieu"],
+                  title: eve.name,
+                  lieu: "lieu",
                   map: "map",
-                  image: eve["image"],
+                  image: eve.multimedia,
                 ),
               );
             },

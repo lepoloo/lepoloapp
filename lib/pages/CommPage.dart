@@ -220,8 +220,8 @@ class _CommPageState extends State<CommPage> {
                   ),
                 ),
                 ...model.getevenement
-                    .map<Widget>((e) => Evenements(e["lieu"], "image_lieu",
-                        "date", e["image"], "description", true))
+                    .map<Widget>((e) => Evenements("lieu", "image_lieu", "date",
+                        e.multimedia, e.description, true))
                     .toList()
               ],
             ),

@@ -33,6 +33,8 @@ class _LoadingPageState extends State<LoadingPage> {
         }));
       } else {
         widget.mains.fetchlieux();
+        widget.mains.fetchcard();
+        widget.mains.fetchevenement();
         Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) {
           return HomeManager(mains: widget.mains);

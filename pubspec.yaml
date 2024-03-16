@@ -55,6 +55,7 @@ dependencies:
   stacked_notification_cards: ^0.1.0-dev.5
   visibility_detector: ^0.4.0+2
   custom_clippers: ^2.0.0
+  loading_animation_widget: ^1.2.0+4
 
 dev_dependencies:
   flutter_test:

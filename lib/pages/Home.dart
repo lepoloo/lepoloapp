@@ -252,29 +252,12 @@ class _HomeState extends State<Home> {
                                     MediaQuery.of(context).size.height / 200),
                             child: ListView(
                                 scrollDirection: Axis.horizontal,
-                                children: [
-                                  {"titre": "All", "icon": Icons.event},
-                                  {"titre": "Bar", "icon": Icons.no_drinks},
-                                  {"titre": "Restaurant", "icon": Icons.cookie},
-                                  {
-                                    "titre": "Snack Bar",
-                                    "icon": Icons.local_drink
-                                  },
-                                  {
-                                    "titre": "Lieux publics",
-                                    "icon": Icons.public
-                                  },
-                                  {"titre": "Hotels", "icon": Icons.home_work},
-                                  {
-                                    "titre": "Autres",
-                                    "icon": Icons.devices_other
-                                  }
-                                ]
+                                children: model.categories
                                     .map((e) => GestureDetector(
                                           onTap: () {
                                             setState(() {
                                               categorieselectionnee =
-                                                  e["titre"].toString();
+                                                  e.id.toString();
                                             });
                                             Timer(Duration(milliseconds: 400),
                                                 () {
@@ -301,50 +284,45 @@ class _HomeState extends State<Home> {
                                                     100),
                                             decoration: BoxDecoration(
                                                 color: categorieselectionnee ==
-                                                        e["titre"].toString()
+                                                        e.id.toString()
                                                     ? Theme.of(context)
                                                         .primaryColor
                                                     : Colors.white,
                                                 border: Border.all(
-                                                    color:
-                                                        categorieselectionnee ==
-                                                                e["titre"]
-                                                                    .toString()
-                                                            ? Theme.of(context)
-                                                                .primaryColor
-                                                            : Colors.black12,
-                                                    width:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .height /
-                                                            500),
+                                                    color: categorieselectionnee ==
+                                                            e.id.toString()
+                                                        ? Theme.of(context)
+                                                            .primaryColor
+                                                        : Colors.black12,
+                                                    width: MediaQuery.of(context)
+                                                            .size
+                                                            .height /
+                                                        500),
                                                 borderRadius: BorderRadius.all(
-                                                    Radius.circular(MediaQuery.of(context).size.height / 55))),
+                                                    Radius.circular(
+                                                        MediaQuery.of(context).size.height / 55))),
                                             child: Column(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceAround,
                                               children: [
                                                 Icon(
-                                                  e["icon"] as IconData?,
-                                                  color: categorieselectionnee ==
-                                                          e["titre"].toString()
-                                                      ? Colors.white
-                                                      : Theme.of(context)
-                                                          .primaryColorLight,
+                                                  Icons.category,
+                                                  color: Theme.of(context)
+                                                      .primaryColorLight,
                                                 ),
                                                 Text(
-                                                  e["titre"].toString(),
+                                                  e.name.toString(),
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(
                                                       color:
                                                           categorieselectionnee ==
-                                                                  e["titre"]
+                                                                  e.id
                                                                       .toString()
                                                               ? Colors.white
                                                               : Colors.black,
                                                       fontWeight:
                                                           categorieselectionnee ==
-                                                                  e["titre"]
+                                                                  e.id
                                                                       .toString()
                                                               ? FontWeight.bold
                                                               : FontWeight
@@ -386,12 +364,12 @@ class _HomeState extends State<Home> {
                                             MediaQuery.of(context).size.height /
                                                 150),
                                         decoration: BoxDecoration(
-                                            //  color: Colors.grey,
+                                            //  color: Colors.grey
 
                                             image: DecorationImage(
                                                 fit: BoxFit.cover,
-                                                image:
-                                                    AssetImage(evn["image"]))),
+                                                image: AssetImage(
+                                                    evn.multimedia))),
                                         child: Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceAround,
@@ -399,7 +377,7 @@ class _HomeState extends State<Home> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              evn["nom"],
+                                              evn.name,
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontWeight: FontWeight.bold,
@@ -410,7 +388,7 @@ class _HomeState extends State<Home> {
                                                           35),
                                             ),
                                             Text(
-                                              evn["description"]
+                                              evn.description
                                                   .toString()
                                                   .substring(0, 25),
                                               textAlign: TextAlign.center,

@@ -10,7 +10,7 @@ class Evenements extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height / 2.5,
+      height: MediaQuery.of(context).size.height / 2.4,
       width: MediaQuery.of(context).size.width,
       margin: EdgeInsets.only(top: MediaQuery.of(context).size.height / 100),
       decoration: BoxDecoration(color: Colors.white, boxShadow: [
@@ -43,7 +43,7 @@ class Evenements extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage(image), fit: BoxFit.fill)),
+                    image: AssetImage(image), fit: BoxFit.cover)),
           ),
           Container(
             height: MediaQuery.of(context).size.height / 12,
@@ -64,37 +64,37 @@ class Evenements extends StatelessWidget {
             child: Row(
               children: [
                 Container(
-                  width: MediaQuery.of(context).size.width / 6,
+                  width: MediaQuery.of(context).size.width / 5,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Icon(
                         Icons.favorite,
-                        size: MediaQuery.of(context).size.height / 80,
+                        size: MediaQuery.of(context).size.height / 60,
                         color: Colors.red,
                       ),
                       Text(
-                        "Favori",
+                        "Favoris",
                         style: TextStyle(
-                            fontSize: MediaQuery.of(context).size.height / 80),
+                            fontSize: MediaQuery.of(context).size.height / 60),
                       )
                     ],
                   ),
                 ),
                 Container(
-                  width: MediaQuery.of(context).size.width / 7,
+                  width: MediaQuery.of(context).size.width / 5,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Icon(
                         Icons.flag,
-                        size: MediaQuery.of(context).size.height / 80,
+                        size: MediaQuery.of(context).size.height / 60,
                         color: Theme.of(context).primaryColor,
                       ),
                       Text(
                         "Signaler",
                         style: TextStyle(
-                            fontSize: MediaQuery.of(context).size.height / 80),
+                            fontSize: MediaQuery.of(context).size.height / 60),
                       )
                     ],
                   ),
